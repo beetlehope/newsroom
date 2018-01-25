@@ -54,6 +54,7 @@ end
 
 group :test do 
   gem 'capybara'
+  gem 'factory_bot_rails'
 end  
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
