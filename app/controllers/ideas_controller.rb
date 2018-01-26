@@ -13,7 +13,7 @@ class IdeasController < ApplicationController
   		flash[:notice] = "Article idea was added."
   		redirect_to ideas_path
   	else 
-  		flash[:alert] = "Article idea hasn't been added."
+  		flash.now[:alert] = "Article idea hasn't been added."
   		render "new"
   	end			
   end
