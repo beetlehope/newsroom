@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+unless User.exists?(email: "editor@newsroom.com")
+	User.create!(email: "editor@newsroom.com", password: "password", editor: true)
+end	
+
+["Obama did this", "Trump did that"].each do |name|
+	Idea.create!(name: name, description: "A sample article idea about #{name}")
+end	

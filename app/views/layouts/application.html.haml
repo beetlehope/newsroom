@@ -16,8 +16,8 @@
         .navbar-header
           =link_to "Newsroom", root_path, class: "navbar-brand"
         %ul.nav.navbar-nav
-          %li= link_to "Home", root_path
-      
+          -editors_only do
+            %li= link_to "Editor", editor_root_path
         %ul.nav.navbar-nav.navbar-right  
           -unless user_signed_in?
 

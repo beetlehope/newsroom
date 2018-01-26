@@ -1,0 +1,5 @@
+%h2= @idea.name
+%h3= @idea.description
+%h4 Author: #{@idea.author.email}
+-if current_user == @idea.author
+  =link_to "Delete Idea", idea_path, method: :delete
