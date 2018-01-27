@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   namespace :editor do 
   	root "application#index"
 
-    resources :users
-  end 
+    resources :users do 
+      member do
+        patch :archive
+      end
+    end
+   end  
 end

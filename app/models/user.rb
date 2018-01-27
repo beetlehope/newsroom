@@ -3,4 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def archive
+  	self.update(archived_at: Time.now)  	
+  end
+
+  scope :not_archived, -> { where(archived_at: nil) }
+
 end
