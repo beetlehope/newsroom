@@ -16,4 +16,11 @@ RSpec.feature "Editors can archive writers" do
 		expect(page).to have_content "Writer has been archived."
 		expect(page).not_to have_content user.email
 	end	
+
+	scenario "but can't archive themselves" do 
+		visit editor_user_path(editor)
+		click_link "Archive Writer"
+
+		expect(page).to have_content "You can't archive yourself."
+	end 	
 end 	
