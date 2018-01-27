@@ -6,7 +6,8 @@ class IdeasController < ApplicationController
     @ideas = Idea.all
   end
 
-  def show    
+  def show  
+    @comment = @idea.comments.build  
   end
 
   def new

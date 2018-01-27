@@ -28,12 +28,12 @@ class Editor::UsersController < Editor::ApplicationController
 
   def archive
     if @user == current_user
-      flash[:message] = "You can't archive yourself."
+      flash[:alert] = "You can't archive yourself."
     else 
       @user.archive
       flash[:notice] = "Writer has been archived."
     end 
-    
+
     redirect_to editor_users_path
   end
 

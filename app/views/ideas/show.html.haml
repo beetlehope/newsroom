@@ -2,4 +2,11 @@
 %h3= @idea.description
 %h4 Author: #{@idea.author.email}
 -if current_user == @idea.author
-  =link_to "Delete Idea", idea_path, method: :delete
+  =link_to "Delete Idea", idea_path(@idea), method: :delete
+%h3 Comments
+#comments
+  -if @idea.comments.persisted.any?
+    =render @idea.comments.persisted
+  -else
+    %p There are no comments    
+= render "comments/form", idea: @idea, comment: @comment
