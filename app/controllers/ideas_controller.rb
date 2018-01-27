@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   before_action :find_idea, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, except: :index
 
   def index
     @ideas = Idea.all
@@ -43,5 +44,9 @@ class IdeasController < ApplicationController
 
   def idea_params
 	   params.require(:idea).permit(:name, :description)  	
+  end
+
+  def authenticate
+    redirect_to(new_user_session_path) if current_user.nil?    
   end
 end
