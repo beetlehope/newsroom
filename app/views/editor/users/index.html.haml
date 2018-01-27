@@ -1,0 +1,5 @@
+%h1 The Team
+%ul
+  -@users.each do |user|
+    %li= link_to user.email, [:editor, user]
+=link_to "New Writer", new_editor_user_path, class: "new"
