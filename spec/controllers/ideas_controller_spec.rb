@@ -13,7 +13,9 @@ RSpec.describe IdeasController, type: :controller do
   describe "logged-out users" do
 
   	let(:user) { FactoryBot.create(:user)}
-  	let(:idea) { FactoryBot.create(:idea, name: "Trump did this", author: user)}
+    let(:state) { FactoryBot.create(:state)}
+  	let(:idea) { FactoryBot.create(:idea, name: "Trump did this", author: user, state: state)}
+
 
     it "can't delete an idea" do
       delete :destroy, params: { id: idea.id }

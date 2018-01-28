@@ -13,3 +13,11 @@ end
 #["Obama did this", "Trump did that"].each do |name|
 #	Idea.create!(name: name, description: "A sample article idea about #{name}")
 #end	
+
+
+unless State.exists?
+	State.create(name: "Research", color: "#0066CC")
+	State.create(name: "Writing", color: "#008000")
+	State.create(name: "Editing", color: "#990000")
+	State.create(name: "Done", color: "#663399")
+end	

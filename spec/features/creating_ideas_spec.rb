@@ -1,7 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "Logged-in users can create ideas for articles" do 
+RSpec.feature "Logged-in users can create ideas for articles and set their state" do 
 	let(:user) { FactoryBot.create(:user) }
+	let!(:state) { FactoryBot.create(:state, name: "Research") }
 
 	before do 
 		login_as(user)
@@ -12,6 +13,7 @@ RSpec.feature "Logged-in users can create ideas for articles" do
 	scenario "with valid attributes" do 
 		fill_in "Name", with: "Oh no Trump again"
 		fill_in "Description", with: "This time Trump did something truly crazy"
+		select "Research", from: "State"
 		click_button "Create Idea"
 
 		expect(page).to have_content "Article idea was added."
@@ -19,6 +21,8 @@ RSpec.feature "Logged-in users can create ideas for articles" do
 		within("h4") do 
 			expect(page).to have_content "Author: #{user.email}"
 		end	
+
+		expect(page).to have_content "Research"
 	end	
 
 	scenario "with invalid attributes" do 

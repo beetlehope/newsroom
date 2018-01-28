@@ -4,8 +4,9 @@ RSpec.feature "A user can delete ideas" do
 
 	let(:user) { FactoryBot.create(:user, email: "user_1@newsroom.com") }
 	let(:user_2) { FactoryBot.create(:user, email: "user_2@newsroom.com") }
-	let!(:idea) { FactoryBot.create(:idea, name: "Trump did this", author: user) }
-	let!(:idea_2) { FactoryBot.create(:idea, name: "Obama did that", author: user_2) }
+	let(:state) { FactoryBot.create(:state)}
+	let!(:idea) { FactoryBot.create(:idea, name: "Trump did this", author: user, state: state) }
+	let!(:idea_2) { FactoryBot.create(:idea, name: "Obama did that", author: user_2, state: state) }
 
 	before do 
 		login_as(user)

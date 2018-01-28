@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "Logged-in users can create ideas for articles" do 
 	let(:user) { FactoryBot.create(:user) }
-	let!(:idea) { FactoryBot.create(:idea, name: "Trump did that!", author: user) }
+	let(:state) { FactoryBot.create(:state)}
+	let!(:idea) { FactoryBot.create(:idea, name: "Trump did that!", author: user, state: state) }
 
 	before do 
 		login_as(user)
