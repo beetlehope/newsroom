@@ -26,6 +26,19 @@ class IdeasController < ApplicationController
   	end			
   end
 
+  def edit    
+  end
+
+  def update
+        if @idea.update(idea_params)
+          flash[:notice] = "Article idea has been updated."
+          redirect_to @idea
+        else
+          flash[:alert] = "Article idea hasn't been updated."
+          render 'edit'
+         end  
+  end
+
   def destroy
     if current_user == @idea.author
       @idea.destroy
@@ -36,7 +49,6 @@ class IdeasController < ApplicationController
     end      
   end
 
-  
   private
 
   def find_idea 

@@ -3,6 +3,7 @@
 %h4 Author: #{@idea.author.email}
 -if current_user == @idea.author
   =link_to "Delete Idea", idea_path(@idea), method: :delete
+  =link_to "Edit Idea", edit_idea_path(@idea)
 %h3 Comments
 #comments
   -if @idea.comments.persisted.any?
