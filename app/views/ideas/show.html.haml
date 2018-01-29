@@ -7,6 +7,8 @@
 -if current_user == @idea.author
   =link_to "Delete Idea", idea_path(@idea), method: :delete
   =link_to "Edit Idea", edit_idea_path(@idea)
+#likes
+  =render partial: "likes"
 %h3 Comments
 #comments
   -if @idea.comments.persisted.any?

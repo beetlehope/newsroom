@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     end  
   end  
 
+  resources :ideas do 
+    resource :like, module: :ideas
+  end 
+
   namespace :editor do 
   	root "application#index"
 

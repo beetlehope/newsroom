@@ -10,4 +10,7 @@ class User < ApplicationRecord
 
   scope :not_archived, -> { where(archived_at: nil) }
 
+  def likes?(idea)
+  	idea.likes.where(user_id: id).any?		  	
+  end
 end

@@ -1,0 +1,6 @@
+-if user_signed_in? && current_user.likes?(@idea)
+  =link_to "Unlike", idea_like_path(@idea), method: :delete, remote: true
+-else
+  =link_to "Like", idea_like_path(@idea), method: :post, remote: true
+=@idea.likes.count  
+
