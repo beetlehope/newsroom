@@ -10,9 +10,9 @@ unless User.exists?(email: "editor@newsroom.com")
 	User.create!(email: "editor@newsroom.com", password: "password", editor: true)
 end	
 
-#["Obama did this", "Trump did that"].each do |name|
-#	Idea.create!(name: name, description: "A sample article idea about #{name}")
-#end	
+["Obama did this", "Trump did that"].each do |name|
+	Idea.create!(name: name, description: "A sample article idea about #{name}", state_id: state, author: user)
+end	
 
 
 unless State.exists?

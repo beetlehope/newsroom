@@ -3,7 +3,7 @@
   %h3= @idea.description
   %h4 Author: #{@idea.author.email}
   -if @idea.state.present?
-    =@idea.state
+    %h5 State: #{@idea.state}
 -if current_user == @idea.author
   =link_to "Delete Idea", idea_path(@idea), method: :delete
   =link_to "Edit Idea", edit_idea_path(@idea)

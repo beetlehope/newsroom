@@ -3,7 +3,8 @@ class IdeasController < ApplicationController
   before_action :authenticate, except: :index
 
   def index
-    @ideas = Idea.all
+    @ideas = Idea.where(nil)
+    @ideas = @ideas.state_id(params[:state_id]) if params[:state_id].present?
   end
 
   def show  
