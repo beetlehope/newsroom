@@ -11,6 +11,7 @@
     %p
       =idea.description
 -unless user_signed_in?
-  %h1 Newsroom
-  %h2 Newsroom is where editorial teams share ideas and coordinate their work 
-  =image_tag 'cover'     
+  .welcome
+    %h1 STORY IDEAS LIVE HERE
+    =button_to "Sign in", new_user_session_path(@user), method: :get, :class => "button"
+      
