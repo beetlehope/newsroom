@@ -2,9 +2,9 @@ class IdeasController < ApplicationController
   before_action :find_idea, only: [:show, :edit, :update, :destroy]
   before_action :authenticate, except: :index
 
-  def index
-    @ideas = Idea.where(nil)
-    @ideas = @ideas.state_id(params[:state_id]) if params[:state_id].present?
+  def index  
+      @ideas = Idea.where(nil)
+      @ideas = @ideas.state_id(params[:state_id]) if params[:state_id].present?
   end
 
   def show  
@@ -43,7 +43,7 @@ class IdeasController < ApplicationController
   def destroy
     if current_user == @idea.author
       @idea.destroy
-      flash[:notice] = "Idea has been deleted."
+      flash[:alert] = "Article idea has been deleted."
       redirect_to ideas_path  
      else 
       render "You can't do that" 
@@ -63,4 +63,5 @@ class IdeasController < ApplicationController
   def authenticate
     redirect_to(new_user_session_path) if current_user.nil?    
   end
+
 end

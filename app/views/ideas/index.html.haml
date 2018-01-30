@@ -1,15 +1,20 @@
--if user_signed_in?
-  =link_to "New Idea", new_idea_path
-  %h1 Ideas for articles
-  =form_tag('/ideas', method: "get") do
-    =select_tag :state_id, options_for_select("Research" => "1" , "Writing" => "2", "Editing" => "3", "Done" => "4"), prompt: "Please select"
+-if user_signed_in?  
+  %h1 All Article Ideas
 
-    =submit_tag 'Filter by stage', name: nil
+  =form_tag('/ideas', method: "get", class: "form-inline") do
+    .form-group
+    =select_tag :state_id, options_for_select("Research" => "1" , "Writing" => "2", "Editing" => "3", "Done" => "4"), prompt: "Please select", class: "form-control"
+    =submit_tag 'Filter by stage', name: nil, class: "btn btn-default"
+
   -@ideas.each do |idea|
     %h3
       =link_to idea.name, idea
     %p
       =idea.description
+
+  %ul.actions
+    %li= link_to "New Idea", new_idea_path, class: "new" 
+
 -unless user_signed_in?
   .welcome
     %h1 STORY IDEAS LIVE HERE

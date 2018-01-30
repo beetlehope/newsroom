@@ -1,13 +1,15 @@
 #idea
   %h2= @idea.name
   %h3= @idea.description
-  %h4 Author: #{@idea.author.email}
+  %h4 Idea author: #{@idea.author.email}
   -if @idea.state.present?
-    %h5 State: #{@idea.state}
+    %h4 Stage: #{@idea.state}
 -if current_user == @idea.author
-  =link_to "Delete Idea", idea_path(@idea), method: :delete
-  =link_to "Edit Idea", edit_idea_path(@idea)
-#likes
+  %ul.actions
+    %li= link_to "Edit Idea", edit_idea_path(@idea), class: "edit"
+    %li= link_to "Delete Idea", idea_path(@idea), method: :delete, data: { confirm: "Are you sure you want to delete this idea?" }, class: "delete"
+-else     
+  
   =render partial: "likes"
 %h3 Comments
 #comments

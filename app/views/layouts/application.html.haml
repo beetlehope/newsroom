@@ -10,23 +10,25 @@
 
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' 
 
-  %body
+  .container
     -if user_signed_in?
-      %nav.navbar.navbar-default.navbar-fixed-top
-        .container-fluid
-          .navbar-header
-            =link_to "Newsroom", root_path, class: "navbar-brand"
-          %ul.nav.navbar-nav
-            -editors_only do
-              %li= link_to "Editor", editor_root_path
-          %ul.nav.navbar-nav.navbar-right 
-            .navbar-right
-              %p.navbar-text Signed in as #{current_user.email}
-              %ul.nav.navbar-nav
-                %li= link_to "Sign out", destroy_user_session_path, method: :delete  
-
-    .container
-      - flash.each do |key, message|
-        = message
+      %body.signed_in
+        %nav.navbar.navbar-default.navbar-fixed-top
+          .container-fluid
+            .navbar-header
+              =link_to "Newsroom", root_path, class: "navbar-brand"
+            %ul.nav.navbar-nav
+              -editors_only do
+                %li= link_to "Editors' Lounge", editor_root_path
+            %ul.nav.navbar-nav.navbar-right 
+              %li= link_to "Sign out", destroy_user_session_path, method: :delete
+        .container
+          - flash.each do |key, message|
+            .alert.alert-info
+              = message
+        = yield             
+    -else
+      %body.signed_out
+        
        	
-      = yield 
+        = yield 
