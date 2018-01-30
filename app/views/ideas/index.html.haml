@@ -3,7 +3,7 @@
 
   =form_tag('/ideas', method: "get", class: "form-inline") do
     .form-group
-    =select_tag :state_id, options_for_select("Research" => "1" , "Writing" => "2", "Editing" => "3", "Done" => "4"), prompt: "Please select", class: "form-control"
+    =select_tag :state_id, options_for_select([["Research", "1"], ["Writing", "2"], ["Editing", "3"], ["Done", "4"]], :selected => params[:state_id]), prompt: "Please select", class: "form-control"
     =submit_tag 'Filter by stage', name: nil, class: "btn btn-default"
 
   -@ideas.each do |idea|
