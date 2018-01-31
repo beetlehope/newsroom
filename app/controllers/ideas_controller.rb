@@ -17,7 +17,7 @@ class IdeasController < ApplicationController
 
   def create
   	@idea = Idea.new(idea_params)
-    @idea.author = current_user
+    @idea.user = current_user
   	if @idea.save 
   		flash[:notice] = "Article idea was added."
   		redirect_to @idea
@@ -41,7 +41,7 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    if current_user == @idea.author
+    if current_user == @idea.user
       @idea.destroy
       flash[:alert] = "Article idea has been deleted."
       redirect_to ideas_path  

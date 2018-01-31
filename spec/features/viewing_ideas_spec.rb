@@ -4,7 +4,7 @@ RSpec.feature "Logged-in users can view individual article ideas pages" do
 
 		let(:user) { FactoryBot.create(:user, email: "user@newsroom.com") }	
 		let(:state) { FactoryBot.create(:state)}
-		let!(:idea) { FactoryBot.create(:idea, name: "Trump did that", description: "You won't believe it", author: user, state: state) }
+		let!(:idea) { FactoryBot.create(:idea, name: "Trump did that", description: "You won't believe it", user: user, state: state) }
 
 		scenario "successfully" do
 			login_as(user)

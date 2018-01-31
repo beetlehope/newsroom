@@ -19,7 +19,7 @@ RSpec.feature "Logged-in users can create ideas for articles and set their state
 		expect(page).to have_content "Article idea was added."
 
 		within("h4") do 
-			expect(page).to have_content "Author: #{user.email}"
+			expect(page).to have_content "Idea author: #{user.email}"
 		end	
 
 		expect(page).to have_content "Research"

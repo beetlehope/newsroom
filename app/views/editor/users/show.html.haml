@@ -1,3 +1,5 @@
 %h2= @user.email
+-@user.ideas.each do |idea|
+  %p=link_to idea.name, idea_path(idea)
 
 =link_to "Archive Writer", [:archive, :editor, @user], method: :patch, data: { confirm: "Are you sure you want to archive this writer?"}, class: "delete"

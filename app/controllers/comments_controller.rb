@@ -3,7 +3,7 @@ before_action :find_idea
 
 	def create
 		@comment = @idea.comments.build(comment_params)
-		@comment.author = current_user
+		@comment.user = current_user
 		if @comment.save
 			flash[:notice] = "Comment has been created."
 			redirect_to [@idea]

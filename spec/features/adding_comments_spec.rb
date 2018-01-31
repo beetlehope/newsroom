@@ -4,7 +4,7 @@ RSpec.feature "Users can comment on article ideas" do
 	
 	let(:user) { FactoryBot.create(:user) }
 	let(:state) { FactoryBot.create(:state)}
-	let(:idea) { FactoryBot.create(:idea, author: user, state: state) }
+	let(:idea) { FactoryBot.create(:idea, user: user, state: state) }
 
 	before do 
 		login_as(user)
@@ -12,7 +12,7 @@ RSpec.feature "Users can comment on article ideas" do
 
 	scenario "with valid attributes" do 
 		visit idea_path(idea)
-		fill_in "Text", with: "That's a great story idea!"
+		fill_in "What do you think?", with: "That's a great story idea!"
 		click_button "Create Comment"
 
 		expect(page).to have_content "Comment has been created."
