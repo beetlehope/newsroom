@@ -23,7 +23,7 @@ body {
 }	
 
 body.signed_out {
-	background-image: url("cover.jpg");
+	background: image-url("cover.jpg");
  	background-position: center center;
  	background-repeat: no-repeat;
  	background-attachment: fixed;
