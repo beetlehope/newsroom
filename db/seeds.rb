@@ -1,23 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Create sample users
 
-unless User.exists?(email: "editor@newsroom.com")
-	User.create!(email: "editor@newsroom.com", password: "password", editor: true)
-end	
+	editor = User.create!(email: "editor@newsroom.com", password: "password", editor: true)
 
-["Obama did this", "Trump did that"].each do |name|
-	Idea.create!(name: name, description: "A sample article idea about #{name}", state_id: state, author: user)
-end	
+	bob = User.create!(email: "bob@newsroom.com", password: "password", editor: false)
+
+	kate = User.create!(email: "kate@newsroom.com", password: "password", editor: false)
+
+	steve = User.create!(email: "steve@newsroom.com", password: "password", editor: false)
+
+# Create sample states
+
+	research = State.create(name: "Research", color: "#0066CC")
+	writing = State.create(name: "Writing", color: "#008000")
+	editing = State.create(name: "Editing", color: "#990000")
+	done = State.create(name: "Done", color: "#663399")
 
 
-unless State.exists?
-	State.create(name: "Research", color: "#0066CC")
-	State.create(name: "Writing", color: "#008000")
-	State.create(name: "Editing", color: "#990000")
-	State.create(name: "Done", color: "#663399")
-end	
+	Idea.create!(name: "Trump want to give citizenship to DREAMERs", description: "Apparently Trump flipped on one of his key election promises: he now wants to provide a road to citizenship to illegals who were brought to the USA by their parents.", state: research, user: editor)
+	Idea.create!(name: "Poland will punish those who use the term 'polish death camps'", description: "The Polish Senate approved a bill according to which you can be sentenced to a fine or even a prison sentence for using the term 'polish death camps' instead of 'german death camps'", state: writing, user: bob)
+	Idea.create!(name: "Navalny arrested again", description: "Russian opposition leader Alexey Navalny was arrested again during protests against a coming rigged elected", state: editing, user: kate)
+	Idea.create!(name: "Ireland announced a referendum on abortion", description: "This may the Irish will vote on lifting the abortion ban, this is the first time in 35 years the voters will have a say on the issue", state: done, user: steve)
