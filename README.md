@@ -3,8 +3,8 @@
 This app can be used for project management by an editorial team. Members of the team can log in and pitch their ideas for news stories. Editors can add and archive team members.
 
 The app is live on [*Heroku*](https://newsroom-app.herokuapp.com/). You can log in with editor credentials:
-email: editor@newsroom.com
-password: password
+
+email: editor@newsroom.com, password: password
 
 ## Getting started
 
