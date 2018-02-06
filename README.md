@@ -39,5 +39,5 @@ $ rails server
 
 ## Acknowledgements
 
-The app wouldn't have been built without Ryan Bigg's [*"Rails 4 in Action"*](https://www.manning.com/books/rails-4-in-action) book. Many of the ideas from the book were used and adapted for my app, as well parts of CSS-styling. 
+The app was inspired by Ryan Bigg's [*"Rails 4 in Action"*](https://www.manning.com/books/rails-4-in-action) book. Many of the ideas and principles from the book were used and adapted for my app, as well parts of CSS. 
 
