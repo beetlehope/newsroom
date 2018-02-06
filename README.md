@@ -21,13 +21,13 @@ $ rails db:migrate
 $ rails db:seed
 ```
 
-Finally, run the test suite to verify that everything is working correctly:
+Finally, run the test suite:
 
 ```
 $ rspec
 ```
 
-If the test suite passes, you'll be able to run the app in a local server:
+If the tests pass, you'll be able to run the app locally:
 
 ```
 $ rails server
