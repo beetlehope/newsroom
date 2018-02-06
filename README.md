@@ -1,24 +1,43 @@
-# README
+# Newsroom App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app can be used for project management by an editorial team. Members of the team can log in and pitch their ideas for news stories. Editors can add and archive team members.
 
-Things you may want to cover:
+The app is live on [*Heroku*](https://newsroom-app.herokuapp.com/). You can log in with editor credentials:
+email: editor@newsroom.com
+password: password
 
-* Ruby version
+## Getting started
 
-* System dependencies
+To get started with the app, clone this repo and install the gems:
 
-* Configuration
+```
+$ bundle install
+```
 
-* Database creation
+Next, migrate the database and seed the data:
 
-* Database initialization
+```
+$ rails db:migrate
+$ rails db:seed
+```
 
-* How to run the test suite
+Finally, run the test suite to verify that everything is working correctly:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ rspec
+```
 
-* Deployment instructions
+If the test suite passes, you'll be able to run the app in a local server:
 
-* ...
+```
+$ rails server
+```
+
+## Built With
+* Rails ~> 5.1.4
+* RSpec 3.7.2
+
+## Acknowledgements
+
+The app wouldn't have been built without Ryan Bigg's [*"Rails 4 in Action"*](https://www.manning.com/books/rails-4-in-action) book. Many of the ideas from the book were used and adapted for my app, as well parts of CSS-styling. 
+
