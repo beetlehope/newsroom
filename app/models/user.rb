@@ -6,13 +6,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def archive
-  	self.update(archived_at: Time.now)  	
-  end
-
   scope :not_archived, -> { where(archived_at: nil) }
 
+  private
+
+  def archive
+    update(archived_at: Time.now)
+  end
+
   def likes?(idea)
-  	idea.likes.where(user_id: id).any?		  	
+    idea.likes.where(user_id: id).any?
   end
 end

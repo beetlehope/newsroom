@@ -4,5 +4,3 @@ class Comment < ApplicationRecord
   validates :text, presence: true
   scope :persisted, -> { where.not(id: nil) }
 end
-
-
