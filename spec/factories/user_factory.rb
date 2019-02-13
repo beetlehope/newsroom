@@ -1,10 +1,10 @@
-FactoryBot.define do 
-	factory :user do 
+FactoryBot.define do
+	factory :user do
 		sequence(:email) { |n| "test#{n}@sample.com" }
-		password "password"
+		password { "password" }
 
 		trait :editor do
-			editor true
-		end	
-	end 
-end	
+			editor { true }
+		end
+	end
+end

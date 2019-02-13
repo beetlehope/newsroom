@@ -1,6 +1,6 @@
-FactoryBot.define do 
-	factory :idea do 
-		name "Idea"
-		description "Sample description"
+FactoryBot.define do
+	factory :idea do
+		name { "Some name" }
+		description { "Sample description" }
 	end
-end	
+end

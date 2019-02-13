@@ -8,8 +8,6 @@ class User < ApplicationRecord
 
   scope :not_archived, -> { where(archived_at: nil) }
 
-  private
-
   def archive
     update(archived_at: Time.now)
   end
