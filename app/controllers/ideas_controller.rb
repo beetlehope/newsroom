@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
+  load_and_authorize_resource
+
   before_action :authenticate, except: :index
-  before_action :find_idea, only: %i[show edit update destroy]
 
   def index
     @ideas = Idea.where(nil)
@@ -11,12 +12,9 @@ class IdeasController < ApplicationController
     @comment = @idea.comments.build
   end
 
-  def new
-    @idea = Idea.new
-  end
+  def new; end
 
   def create
-    @idea = Idea.new(idea_params)
     @idea.user = current_user
 
     if @idea.save
@@ -54,10 +52,6 @@ class IdeasController < ApplicationController
 
   def authenticate
     redirect_to(new_user_session_path) if current_user.nil?
-  end
-
-  def find_idea
-    @idea = Idea.find(params[:id])
   end
 
   def idea_params

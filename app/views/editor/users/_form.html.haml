@@ -1,6 +1,6 @@
 =simple_form_for [:editor, user] do |f|
   = f.input :email
   = f.input :password
-  = f.input :editor, label: "Is it a new editor?"
+  = f.input :role, label: "Is it a new editor?"
 
   = f.button :submit, class: "btn btn-primary"

@@ -6,6 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  enum role: [:writer, :editor]
+
   scope :not_archived, -> { where(archived_at: nil) }
 
   def archive

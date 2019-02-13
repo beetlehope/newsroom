@@ -1,12 +1,12 @@
 # Create sample users
 
-	editor = User.create!(email: "editor@newsroom.com", password: "password", editor: true, login: "editor")
+	editor = User.create!(email: "editor@newsroom.com", password: "password", role: "editor", login: "editor")
 
-	bob = User.create!(email: "bob@newsroom.com", password: "password", editor: false, login: "bob")
+	bob = User.create!(email: "bob@newsroom.com", password: "password", role: "writer", login: "bob")
 
-	kate = User.create!(email: "kate@newsroom.com", password: "password", editor: false, login: "kate")
+	kate = User.create!(email: "kate@newsroom.com", password: "password", role: "writer", login: "kate")
 
-	steve = User.create!(email: "steve@newsroom.com", password: "password", editor: false, login: "steve")
+	steve = User.create!(email: "steve@newsroom.com", password: "password", role: "writer", login: "steve")
 
 # Create sample states
 

@@ -4,17 +4,15 @@
   %h4 Idea author: #{@idea.user.email}
   -if @idea.state.present?
     %h5 Stage: #{@idea.state}
--if current_user == @idea.user
   %ul.actions
-    %li= link_to "Edit Idea", edit_idea_path(@idea), class: "edit"
-    %li= link_to "Delete Idea", idea_path(@idea), method: :delete, data: { confirm: "Are you sure you want to delete this idea?" }, class: "delete"
--else     
-  
+    %li= link_to "Edit Idea", edit_idea_path(@idea), class: "edit" if can? :update, @idea
+    %li= link_to "Delete Idea", idea_path(@idea), method: :delete, data: { confirm: "Are you sure you want to delete this idea?" }, class: "delete" if can? :delete, @idea
+
   =render partial: "likes"
 %h3 Comments
 #comments
   -if @idea.comments.persisted.any?
     =render @idea.comments.persisted
   -else
-    %p There are no comments    
+    %p There are no comments
 = render "comments/form", idea: @idea, comment: @comment

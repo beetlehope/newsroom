@@ -4,7 +4,7 @@ FactoryBot.define do
 		password { "password" }
 
 		trait :editor do
-			editor { true }
+			role { "editor" }
 		end
 	end
 end
