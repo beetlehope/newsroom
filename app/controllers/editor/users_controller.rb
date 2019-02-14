@@ -36,7 +36,7 @@ class Editor::UsersController < Editor::ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :editor)
+    params.require(:user).permit(:email, :password, :role)
   end
 
   def find_user

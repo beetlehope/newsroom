@@ -22,7 +22,7 @@ RSpec.feature 'Editors can add new writers' do
   scenario 'and make them editors' do
     fill_in 'Email', with: 'editor@newsroom.com'
     fill_in 'Password', with: 'password'
-    check 'Is it a new editor?'
+    page.select 'editor', from: "user[role]"
     click_button 'Create User'
 
     expect(page).to have_content 'Writer has been added.'

@@ -8,7 +8,7 @@
     %li= link_to "Edit Idea", edit_idea_path(@idea), class: "edit" if can? :update, @idea
     %li= link_to "Delete Idea", idea_path(@idea), method: :delete, data: { confirm: "Are you sure you want to delete this idea?" }, class: "delete" if can? :delete, @idea
 
-  =render partial: "likes"
+  =render partial: "ideas/likes"
 %h3 Comments
 #comments
   -if @idea.comments.persisted.any?
