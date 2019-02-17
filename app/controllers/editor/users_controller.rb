@@ -1,4 +1,6 @@
 class Editor::UsersController < Editor::ApplicationController
+  load_and_authorize_resource
+
   before_action :find_user, except: %i[index new create]
 
   def index

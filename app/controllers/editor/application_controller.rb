@@ -1,3 +1,5 @@
 class Editor::ApplicationController < ApplicationController
-  def index; end
+  def index
+    authorize! :manage, User
+  end
 end

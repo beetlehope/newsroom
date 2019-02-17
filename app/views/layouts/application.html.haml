@@ -15,7 +15,7 @@
             .navbar-header
               =link_to "Newsroom", root_path, class: "navbar-brand"
             %ul.nav.navbar-nav
-              -editors_only do
+              -if can? :manage, User
                 %li= link_to "Editors' Lounge", editor_root_path
             %ul.nav.navbar-nav.navbar-right
               %li= link_to "Sign out", sign_out_path, method: :delete
