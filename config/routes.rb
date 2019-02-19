@@ -20,4 +20,6 @@ Rails.application.routes.draw do
     resources :comments
     resource :like, module: :ideas
   end
+
+  match "/delayed_job" => DelayedJobWeb, :anchor => false, :via => [:get, :post]
 end

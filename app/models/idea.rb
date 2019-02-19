@@ -6,6 +6,7 @@ class Idea < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  
+
   scope :state_id, ->(state_id) { where state_id: state_id }
+  scope :outdated, -> { where("created_at < ?", 2.weeks.ago) }
 end
